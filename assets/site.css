@@ -71,10 +71,15 @@ h1 span { color: var(--green); }
 .primary { background: var(--green); color: white; }
 .primary:hover { background: var(--green-hover); color: white; }
 
-.metrics { margin: 0; display: grid; gap: 0.4rem; border-top: 2px solid var(--green); }
-.metrics div { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; border-bottom: 1px solid var(--rule); }
-.metrics dt { color: var(--muted); font-size: 1rem; }
-.metrics dd { margin: 0; color: var(--green); font: clamp(2rem, 3.4vw, 3.3rem)/1 var(--serif); font-variant-numeric: lining-nums; }
+.walk-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem; padding: 0.55rem; margin: 0; background: #234239; border-radius: 0.65rem; }
+.walk-shot { position: relative; overflow: hidden; padding: 1rem 0.25rem 0.45rem; background: #f0f0e7; text-align: center; }
+.walk-shot img { display: block; width: 100%; height: clamp(10rem, 17vw, 16rem); object-fit: contain; }
+.walk-shot span { display: block; margin-top: 0.4rem; color: #29463d; font-size: 0.76rem; font-weight: 650; }
+.metrics { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-block: 1px solid var(--rule); margin: 0; }
+.metrics div { display: flex; flex-direction: column-reverse; align-items: flex-start; padding: 0.95rem 0.5rem 1rem 1.1rem; }
+.metrics div + div { border-left: 1px solid var(--rule); }
+.metrics dt { color: var(--muted); font-size: 0.9rem; }
+.metrics dd { margin: 0; color: var(--green); font: clamp(1.9rem, 3.4vw, 3.1rem)/1.1 var(--serif); font-variant-numeric: lining-nums; }
 
 .section { padding-block: clamp(2.8rem, 4.5vw, 4rem); border-bottom: 1px solid var(--rule); }
 .section h2 { font-size: clamp(2.2rem, 3.9vw, 3.6rem); margin-bottom: 1rem; letter-spacing: -0.035em; }
@@ -89,6 +94,7 @@ h1 span { color: var(--green); }
   box-shadow: 0 4px 20px rgba(32, 46, 42, 0.04);
 }
 .gallery-tabs {
+  flex-wrap: wrap;
   display: flex;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
@@ -153,6 +159,7 @@ h1 span { color: var(--green); }
   align-items: center;
 }
 .frame-box {
+  margin: 0; min-width: 0;
   background: white;
   border: 1px solid var(--rule);
   border-radius: 0.35rem;
@@ -161,8 +168,7 @@ h1 span { color: var(--green); }
 }
 .frame-box img {
   width: 100%;
-  height: auto;
-  max-height: 220px;
+  height: clamp(10rem, 16vw, 13.5rem);
   object-fit: contain;
   display: block;
   margin-inline: auto;
@@ -221,6 +227,7 @@ footer { padding-block: 1.5rem; font-size: 0.9rem; }
 
 @media (max-width: 960px) {
   .gallery-grid { grid-template-columns: 1fr; }
+  .frame-box img { height: clamp(10rem, 28vw, 14rem); }
   .hero { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .study-grid, .dataset-copy { grid-template-columns: 1fr; }
@@ -229,6 +236,10 @@ footer { padding-block: 1.5rem; font-size: 0.9rem; }
   .wrap { width: calc(100% - 2rem); }
   nav { flex-wrap: wrap; gap: 0.2rem 0.9rem; padding-block: 0.55rem; }
   .nav-links { gap: 0.6rem; font-size: 0.83rem; }
+  .gallery-container { padding: .8rem; }
+  .gallery-tabs { gap: .35rem; }
+  .tab-btn { padding: .46rem .65rem; }
+  .metrics div { padding-left: .55rem; }
   .hero { padding-block: 1.6rem; gap: 1.5rem; }
   .button { font-size: 0.9rem; }
   footer { flex-wrap: wrap; }

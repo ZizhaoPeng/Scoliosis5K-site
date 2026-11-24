@@ -14,7 +14,7 @@
     <nav class="wrap" aria-label="Main navigation">
       <a class="wordmark" href="#top">Scoliosis5K</a>
       <div class="nav-links">
-        <a href="#gallery">Dataset Gallery</a>
+        <a href="#gallery">Gallery</a>
         <a href="#dataset">Overview</a>
         <a href="#study">Paper</a>
         <a class="nav-access" href="#access">Request Access</a>
@@ -25,13 +25,18 @@
     <section class="hero wrap" aria-labelledby="intro-title">
       <div class="intro">
         <h1 id="intro-title">Scoliosis<span>5K</span></h1>
-        <p class="lede">A large-scale multimodal dataset of corridor walks for adolescent scoliosis screening. Each recording pairs head-masked RGB video with body silhouettes and 25-point 2D pose landmarks across walking views, frame by frame.</p>
+        <p class="lede">A multimodal gait dataset for scoliosis screening. Each corridor walk pairs RGB video with a silhouette and 25 pose landmarks, frame by frame.</p>
         <div class="actions">
           <a class="button primary" href="#access">Request dataset access</a>
           <a class="button" href="https://github.com/ZizhaoPeng/Scoliosis5K-code" target="_blank" rel="noopener">View code on GitHub</a>
           <a class="button" href="https://arxiv.org/abs/2611.26849v1" target="_blank" rel="noopener">Read preprint (arXiv)</a>
         </div>
       </div>
+      <figure class="walk-strip" aria-label="Three de-identified walking views">
+        <div class="walk-shot"><img src="assets/gallery/img_00.png" alt="Front view of a person walking, head and shoulders masked"><span>Front</span></div>
+        <div class="walk-shot"><img src="assets/gallery/img_02.png" alt="Left side view, head and shoulders masked"><span>Left</span></div>
+        <div class="walk-shot"><img src="assets/gallery/img_04.png" alt="Rear view, head and shoulders masked"><span>Rear</span></div>
+      </figure>
       <dl class="metrics">
         <div><dt>Recordings</dt><dd>4,998</dd></div>
         <div><dt>Participants</dt><dd>3,010</dd></div>
@@ -41,189 +46,36 @@
 
     <!-- Prominent Dataset Gallery Section -->
     <section class="section wrap" id="gallery" aria-labelledby="gallery-title">
-      <h2 id="gallery-title">Multimodal Dataset Gallery</h2>
-      <p class="section-subtitle">Prominent real photo gallery showcasing de-identified participant walks across front, left, and rear viewpoints. Authorised public examples pair head-masked RGB crops (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>X</mi><mi>w</mi></msub></math>), body silhouette masks (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>S</mi><mi>w</mi></msub></math>), and 25-point 2D pose landmarks at instants <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math> and <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi><mo>+</mo><mn>6</mn></math>.</p>
+      <h2 id="gallery-title">Walking views</h2>
+      <p class="section-subtitle">Each view shows a different participant at two moments six frames apart. The RGB crop, silhouette and 25-point pose come from the same frame.</p>
 
       <div class="gallery-container">
         <div class="gallery-tabs" role="tablist" aria-label="Walking viewpoints">
-          <button type="button" class="tab-btn active" role="tab" aria-selected="true" aria-controls="view-front" id="tab-front">Front Walk (Forward)</button>
-          <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="view-left" id="tab-left">Left Walk</button>
-          <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="view-rear" id="tab-rear">Rear Walk</button>
+          <button type="button" class="tab-btn active" role="tab" aria-selected="true" aria-controls="view-front" id="tab-front">Front view</button>
+          <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="view-left" id="tab-left">Left view</button>
+          <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="view-rear" id="tab-rear">Rear view</button>
         </div>
 
-        <!-- Front Walk View -->
-        <div class="gallery-view active" id="view-front" role="tabpanel" aria-labelledby="tab-front">
-          <div class="gallery-grid">
-            <div class="modality-card">
-              <div class="modality-header">
-                <span class="modality-title">Head-Masked RGB</span>
-                <span class="modality-tag">X<sub>w</sub></span>
-              </div>
-              <p class="frame-label">Independent large crop frames ($t$ &amp; $t+6$)</p>
-              <div class="frames-row">
-                <div class="frame-box">
-                  <img src="assets/gallery/img_00.png" alt="Front walk RGB crop at instant t" loading="lazy">
-                  <div class="frame-label">Frame t (30)</div>
-                </div>
-                <div class="frame-box">
-                  <img src="assets/gallery/img_01.png" alt="Front walk RGB crop at instant t+6" loading="lazy">
-                  <div class="frame-label">Frame t+6 (36)</div>
-                </div>
-              </div>
-            </div>
-            <div class="modality-card">
-              <div class="modality-header">
-                <span class="modality-title">Silhouette Masks</span>
-                <span class="modality-tag">S<sub>w</sub></span>
-              </div>
-              <p class="frame-label">Paired binary body silhouettes</p>
-              <div class="frames-row">
-                <div class="frame-box">
-                  <svg viewBox="0 0 70 120" style="width:100%; height:180px; background:#fff; border-radius:0.2rem;"><rect width="70" height="120" fill="#EEF1F8"/><path d="M28 10h14v12h-14zM24 22h22v15h-22zM22 37h26v22h-26zM26 59h18v35h-18zM28 94h14v22h-14z" fill="#485E7B"/></svg>
-                  <div class="frame-label">Silhouette t</div>
-                </div>
-                <div class="frame-box">
-                  <svg viewBox="0 0 70 120" style="width:100%; height:180px; background:#fff; border-radius:0.2rem;"><rect width="70" height="120" fill="#EEF1F8"/><path d="M29 10h12v12h-12zM25 22h20v15h-20zM23 37h24v22h-24zM26 59h18v35h-18zM28 94h14v22h-14z" fill="#485E7B"/></svg>
-                  <div class="frame-label">Silhouette t+6</div>
-                </div>
-              </div>
-            </div>
-            <div class="modality-card">
-              <div class="modality-header">
-                <span class="modality-title">2D Pose Landmarks</span>
-                <span class="modality-tag">25 Points</span>
-              </div>
-              <p class="frame-label">Full-body &amp; foot keypoints</p>
-              <div class="frames-row">
-                <div class="frame-box">
-                  <svg viewBox="0 0 70 120" style="width:100%; height:180px; background:#fff; border-radius:0.2rem;"><rect width="70" height="120" fill="#F6EFE2"/><circle cx="35" cy="20" r="3" fill="#393D42"/><circle cx="28" cy="35" r="2.5" fill="#006B80"/><circle cx="42" cy="35" r="2.5" fill="#9B421B"/><circle cx="35" cy="55" r="2.5" fill="#393D42"/><circle cx="30" cy="85" r="2.5" fill="#006B80"/><circle cx="40" cy="85" r="2.5" fill="#9B421B"/><circle cx="32" cy="110" r="2" fill="#006B80"/><circle cx="38" cy="110" r="2" fill="#9B421B"/></svg>
-                  <div class="frame-label">Pose t (25 pts)</div>
-                </div>
-                <div class="frame-box">
-                  <svg viewBox="0 0 70 120" style="width:100%; height:180px; background:#fff; border-radius:0.2rem;"><rect width="70" height="120" fill="#F6EFE2"/><circle cx="35" cy="20" r="3" fill="#393D42"/><circle cx="27" cy="35" r="2.5" fill="#006B80"/><circle cx="43" cy="35" r="2.5" fill="#9B421B"/><circle cx="35" cy="55" r="2.5" fill="#393D42"/><circle cx="32" cy="85" r="2.5" fill="#006B80"/><circle cx="38" cy="85" r="2.5" fill="#9B421B"/><circle cx="34" cy="110" r="2" fill="#006B80"/><circle cx="36" cy="110" r="2" fill="#9B421B"/></svg>
-                  <div class="frame-label">Pose t+6 (25 pts)</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Left Walk View -->
-        <div class="gallery-view" id="view-left" role="tabpanel" aria-labelledby="tab-left">
-          <div class="gallery-grid">
-            <div class="modality-card">
-              <div class="modality-header">
-                <span class="modality-title">Head-Masked RGB</span>
-                <span class="modality-tag">X<sub>w</sub></span>
-              </div>
-              <p class="frame-label">Independent large crop frames ($t$ &amp; $t+6$)</p>
-              <div class="frames-row">
-                <div class="frame-box">
-                  <img src="assets/gallery/img_02.png" alt="Left walk RGB crop at instant t" loading="lazy">
-                  <div class="frame-label">Frame t (126)</div>
-                </div>
-                <div class="frame-box">
-                  <img src="assets/gallery/img_03.png" alt="Left walk RGB crop at instant t+6" loading="lazy">
-                  <div class="frame-label">Frame t+6 (132)</div>
-                </div>
-              </div>
-            </div>
-            <div class="modality-card">
-              <div class="modality-header">
-                <span class="modality-title">Silhouette Masks</span>
-                <span class="modality-tag">S<sub>w</sub></span>
-              </div>
-              <p class="frame-label">Paired binary body silhouettes</p>
-              <div class="frames-row">
-                <div class="frame-box">
-                  <svg viewBox="0 0 70 120" style="width:100%; height:180px; background:#fff; border-radius:0.2rem;"><rect width="70" height="120" fill="#EEF1F8"/><path d="M30 10h10v12h-10zM26 22h18v15h-18zM24 37h22v22h-22zM27 59h16v35h-16zM29 94h12v22h-12z" fill="#485E7B"/></svg>
-                  <div class="frame-label">Silhouette t</div>
-                </div>
-                <div class="frame-box">
-                  <svg viewBox="0 0 70 120" style="width:100%; height:180px; background:#fff; border-radius:0.2rem;"><rect width="70" height="120" fill="#EEF1F8"/><path d="M31 10h10v12h-10zM27 22h18v15h-18zM25 37h22v22h-22zM27 59h16v35h-16zM29 94h12v22h-12z" fill="#485E7B"/></svg>
-                  <div class="frame-label">Silhouette t+6</div>
-                </div>
-              </div>
-            </div>
-            <div class="modality-card">
-              <div class="modality-header">
-                <span class="modality-title">2D Pose Landmarks</span>
-                <span class="modality-tag">25 Points</span>
-              </div>
-              <p class="frame-label">Full-body &amp; foot keypoints</p>
-              <div class="frames-row">
-                <div class="frame-box">
-                  <svg viewBox="0 0 70 120" style="width:100%; height:180px; background:#fff; border-radius:0.2rem;"><rect width="70" height="120" fill="#F6EFE2"/><circle cx="35" cy="20" r="3" fill="#393D42"/><circle cx="28" cy="35" r="2.5" fill="#006B80"/><circle cx="42" cy="35" r="2.5" fill="#9B421B"/><circle cx="35" cy="55" r="2.5" fill="#393D42"/><circle cx="31" cy="85" r="2.5" fill="#006B80"/><circle cx="39" cy="85" r="2.5" fill="#9B421B"/><circle cx="33" cy="110" r="2" fill="#006B80"/><circle cx="37" cy="110" r="2" fill="#9B421B"/></svg>
-                  <div class="frame-label">Pose t (25 pts)</div>
-                </div>
-                <div class="frame-box">
-                  <svg viewBox="0 0 70 120" style="width:100%; height:180px; background:#fff; border-radius:0.2rem;"><rect width="70" height="120" fill="#F6EFE2"/><circle cx="35" cy="20" r="3" fill="#393D42"/><circle cx="27" cy="35" r="2.5" fill="#006B80"/><circle cx="43" cy="35" r="2.5" fill="#9B421B"/><circle cx="35" cy="55" r="2.5" fill="#393D42"/><circle cx="30" cy="85" r="2.5" fill="#006B80"/><circle cx="40" cy="85" r="2.5" fill="#9B421B"/><circle cx="32" cy="110" r="2" fill="#006B80"/><circle cx="38" cy="110" r="2" fill="#9B421B"/></svg>
-                  <div class="frame-label">Pose t+6 (25 pts)</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Rear Walk View -->
-        <div class="gallery-view" id="view-rear" role="tabpanel" aria-labelledby="tab-rear">
-          <div class="gallery-grid">
-            <div class="modality-card">
-              <div class="modality-header">
-                <span class="modality-title">Head-Masked RGB</span>
-                <span class="modality-tag">X<sub>w</sub></span>
-              </div>
-              <p class="frame-label">Independent large crop frames ($t$ &amp; $t+6$)</p>
-              <div class="frames-row">
-                <div class="frame-box">
-                  <img src="assets/gallery/img_04.png" alt="Rear walk RGB crop at instant t" loading="lazy">
-                  <div class="frame-label">Frame t (210)</div>
-                </div>
-                <div class="frame-box">
-                  <img src="assets/gallery/img_05.png" alt="Rear walk RGB crop at instant t+6" loading="lazy">
-                  <div class="frame-label">Frame t+6 (216)</div>
-                </div>
-              </div>
-            </div>
-            <div class="modality-card">
-              <div class="modality-header">
-                <span class="modality-title">Silhouette Masks</span>
-                <span class="modality-tag">S<sub>w</sub></span>
-              </div>
-              <p class="frame-label">Paired binary body silhouettes</p>
-              <div class="frames-row">
-                <div class="frame-box">
-                  <svg viewBox="0 0 70 120" style="width:100%; height:180px; background:#fff; border-radius:0.2rem;"><rect width="70" height="120" fill="#EEF1F8"/><path d="M29 10h12v12h-12zM25 22h20v15h-20zM23 37h24v22h-24zM26 59h18v35h-18zM28 94h14v22h-14z" fill="#485E7B"/></svg>
-                  <div class="frame-label">Silhouette t</div>
-                </div>
-                <div class="frame-box">
-                  <svg viewBox="0 0 70 120" style="width:100%; height:180px; background:#fff; border-radius:0.2rem;"><rect width="70" height="120" fill="#EEF1F8"/><path d="M30 10h10v12h-10zM26 22h18v15h-18zM24 37h22v22h-22zM26 59h18v35h-18zM28 94h14v22h-14z" fill="#485E7B"/></svg>
-                  <div class="frame-label">Silhouette t+6</div>
-                </div>
-              </div>
-            </div>
-            <div class="modality-card">
-              <div class="modality-header">
-                <span class="modality-title">2D Pose Landmarks</span>
-                <span class="modality-tag">25 Points</span>
-              </div>
-              <p class="frame-label">Full-body &amp; foot keypoints</p>
-              <div class="frames-row">
-                <div class="frame-box">
-                  <svg viewBox="0 0 70 120" style="width:100%; height:180px; background:#fff; border-radius:0.2rem;"><rect width="70" height="120" fill="#F6EFE2"/><circle cx="35" cy="20" r="3" fill="#393D42"/><circle cx="28" cy="35" r="2.5" fill="#006B80"/><circle cx="42" cy="35" r="2.5" fill="#9B421B"/><circle cx="35" cy="55" r="2.5" fill="#393D42"/><circle cx="30" cy="85" r="2.5" fill="#006B80"/><circle cx="40" cy="85" r="2.5" fill="#9B421B"/><circle cx="32" cy="110" r="2" fill="#006B80"/><circle cx="38" cy="110" r="2" fill="#9B421B"/></svg>
-                  <div class="frame-label">Pose t (25 pts)</div>
-                </div>
-                <div class="frame-box">
-                  <svg viewBox="0 0 70 120" style="width:100%; height:180px; background:#fff; border-radius:0.2rem;"><rect width="70" height="120" fill="#F6EFE2"/><rect width="70" height="120" fill="#F6EFE2"/><circle cx="35" cy="20" r="3" fill="#393D42"/><circle cx="27" cy="35" r="2.5" fill="#006B80"/><circle cx="43" cy="35" r="2.5" fill="#9B421B"/><circle cx="35" cy="55" r="2.5" fill="#393D42"/><circle cx="31" cy="85" r="2.5" fill="#006B80"/><circle cx="39" cy="85" r="2.5" fill="#9B421B"/><circle cx="33" cy="110" r="2" fill="#006B80"/><circle cx="37" cy="110" r="2" fill="#9B421B"/></svg>
-                  <div class="frame-label">Pose t+6 (25 pts)</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <div class="gallery-view active" id="view-front" role="tabpanel" aria-labelledby="tab-front"><div class="gallery-grid"><div class="modality-card"><h3 class="modality-title">RGB</h3><div class="frames-row"><figure class="frame-box"><img src="assets/gallery/img_00.png" alt="Front view, head-masked RGB, frame 30" loading="lazy"><figcaption class="frame-label">Frame 30</figcaption></figure>
+<figure class="frame-box"><img src="assets/gallery/img_01.png" alt="Front view, head-masked RGB, frame 36" loading="lazy"><figcaption class="frame-label">Frame 36</figcaption></figure></div></div>
+<div class="modality-card"><h3 class="modality-title">Silhouette</h3><div class="frames-row"><figure class="frame-box"><img src="assets/gallery/front-30-silhouette.svg" alt="Front view, Silhouette, frame 30" loading="lazy"><figcaption class="frame-label">Frame 30</figcaption></figure>
+<figure class="frame-box"><img src="assets/gallery/front-36-silhouette.svg" alt="Front view, Silhouette, frame 36" loading="lazy"><figcaption class="frame-label">Frame 36</figcaption></figure></div></div>
+<div class="modality-card"><h3 class="modality-title">2D pose</h3><div class="frames-row"><figure class="frame-box"><img src="assets/gallery/front-30-pose.svg" alt="Front view, 2D pose, frame 30" loading="lazy"><figcaption class="frame-label">Frame 30</figcaption></figure>
+<figure class="frame-box"><img src="assets/gallery/front-36-pose.svg" alt="Front view, 2D pose, frame 36" loading="lazy"><figcaption class="frame-label">Frame 36</figcaption></figure></div></div></div></div>
+        <div class="gallery-view" id="view-left" role="tabpanel" aria-labelledby="tab-left"><div class="gallery-grid"><div class="modality-card"><h3 class="modality-title">RGB</h3><div class="frames-row"><figure class="frame-box"><img src="assets/gallery/img_02.png" alt="Left view, head-masked RGB, frame 126" loading="lazy"><figcaption class="frame-label">Frame 126</figcaption></figure>
+<figure class="frame-box"><img src="assets/gallery/img_03.png" alt="Left view, head-masked RGB, frame 132" loading="lazy"><figcaption class="frame-label">Frame 132</figcaption></figure></div></div>
+<div class="modality-card"><h3 class="modality-title">Silhouette</h3><div class="frames-row"><figure class="frame-box"><img src="assets/gallery/left-126-silhouette.svg" alt="Left view, Silhouette, frame 126" loading="lazy"><figcaption class="frame-label">Frame 126</figcaption></figure>
+<figure class="frame-box"><img src="assets/gallery/left-132-silhouette.svg" alt="Left view, Silhouette, frame 132" loading="lazy"><figcaption class="frame-label">Frame 132</figcaption></figure></div></div>
+<div class="modality-card"><h3 class="modality-title">2D pose</h3><div class="frames-row"><figure class="frame-box"><img src="assets/gallery/left-126-pose.svg" alt="Left view, 2D pose, frame 126" loading="lazy"><figcaption class="frame-label">Frame 126</figcaption></figure>
+<figure class="frame-box"><img src="assets/gallery/left-132-pose.svg" alt="Left view, 2D pose, frame 132" loading="lazy"><figcaption class="frame-label">Frame 132</figcaption></figure></div></div></div></div>
+        <div class="gallery-view" id="view-rear" role="tabpanel" aria-labelledby="tab-rear"><div class="gallery-grid"><div class="modality-card"><h3 class="modality-title">RGB</h3><div class="frames-row"><figure class="frame-box"><img src="assets/gallery/img_04.png" alt="Rear view, head-masked RGB, frame 221" loading="lazy"><figcaption class="frame-label">Frame 221</figcaption></figure>
+<figure class="frame-box"><img src="assets/gallery/img_05.png" alt="Rear view, head-masked RGB, frame 227" loading="lazy"><figcaption class="frame-label">Frame 227</figcaption></figure></div></div>
+<div class="modality-card"><h3 class="modality-title">Silhouette</h3><div class="frames-row"><figure class="frame-box"><img src="assets/gallery/rear-221-silhouette.svg" alt="Rear view, Silhouette, frame 221" loading="lazy"><figcaption class="frame-label">Frame 221</figcaption></figure>
+<figure class="frame-box"><img src="assets/gallery/rear-227-silhouette.svg" alt="Rear view, Silhouette, frame 227" loading="lazy"><figcaption class="frame-label">Frame 227</figcaption></figure></div></div>
+<div class="modality-card"><h3 class="modality-title">2D pose</h3><div class="frames-row"><figure class="frame-box"><img src="assets/gallery/rear-221-pose.svg" alt="Rear view, 2D pose, frame 221" loading="lazy"><figcaption class="frame-label">Frame 221</figcaption></figure>
+<figure class="frame-box"><img src="assets/gallery/rear-227-pose.svg" alt="Rear view, 2D pose, frame 227" loading="lazy"><figcaption class="frame-label">Frame 227</figcaption></figure></div></div></div></div>
         <div class="gallery-footer-note">
-          <span>Authorisation: All de-identified participant examples are fully authorized for open research and public website presentation under institutional review.</span>
+          <span>For display, RGB crops are pixelated and masked through the shoulders.</span>
           <div class="step-links">
             <a href="assets/gallery/dataset_gallery.svg" target="_blank" rel="noopener">View full SVG figure</a>
             <a href="assets/gallery/dataset_gallery.pdf" download>Download PDF figure</a>
@@ -236,7 +88,7 @@
     <section class="section wrap" id="dataset" aria-labelledby="dataset-title">
       <h2 id="dataset-title">Dataset Overview &amp; Protocol</h2>
       <div class="dataset-copy">
-        <p>Clinical and school sites recorded adolescents and young adults walking along standardized corridors. Scoliosis5K follows the <a href="https://zhouzi180.github.io/Scoliosis1K/" target="_blank" rel="noopener">Scoliosis1K protocol</a> with an expanded multi-site cohort. Each walk has 300 stored frame positions. A recording identifier and frame index link each RGB crop to a 64 &times; 64 silhouette and 25 pose landmarks with confidence scores.</p>
+        <p>Clinical and school sites recorded adolescents and young adults walking along standardized corridors. Scoliosis5K follows the <a href="https://zhouzi180.github.io/Scoliosis1K/" target="_blank" rel="noopener">Scoliosis1K protocol</a> in a separate nine-site cohort. Each walk has 300 stored frame positions. A recording identifier and frame index link each RGB crop to a 64 &times; 64 silhouette and 25 pose landmarks with confidence scores.</p>
         <p>Rehabilitation specialists assigned a screening label at each visit across three categories: negative, neutral (borderline asymmetry), and positive (referral for radiographic assessment). The official split groups recordings strictly by participant, with 3,999 recordings for training and 999 for testing.</p>
       </div>
       <details class="cohort">
@@ -372,8 +224,8 @@
         </div>
         <div class="study-result">
           <h3>Participant-Level Evaluation</h3>
-          <p>The study evaluated models on 1,628 recordings from 988 participants in the training partition using a rigorous participant-disjoint protocol where all walks from each person stayed in a single fold.</p>
-          <p>Across five folds and three training seeds, the model achieved <strong>83.77% accuracy</strong> and <strong>79.91% macro-F1</strong>, while the official test partition remained strictly held out.</p>
+          <p>The study evaluated models on 1,628 recordings from 988 participants in the training partition with all walks from a given participant in the same fold.</p>
+          <p>Across five folds and three training seeds, the model achieved <strong>83.77% accuracy</strong> and <strong>79.91% macro-F1</strong>, while the official test partition remained held out.</p>
         </div>
       </div>
     </section>
